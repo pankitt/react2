@@ -4,7 +4,8 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk'
-import { Route, HashRouter as Router } from 'react-router-dom';
+import { Route, Router } from 'react-router-dom';
+import createBrowserHistory from 'history/createBrowserHistory'
 
 import './index.css';
 import App from './App';
@@ -38,10 +39,11 @@ export function playlist(state = initialState, action) {
 
 //const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
+const newHistory = createBrowserHistory();
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router>
+        <Router history={newHistory}>
             <Route path="/" component={App}/>
         </Router>
     </Provider>,

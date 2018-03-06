@@ -8,7 +8,7 @@ import RegistrationForm from "./RegistrationForm";
 import RefForm from "./RefForm";
 import Counter from "./Counter";
 import { getTracks } from './actions/tracks'
-import { Route, HashRouter as Router } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import About from "./About";
 
 const menu = [
@@ -35,9 +35,9 @@ class App extends Component {
             <div className="container">
                 <header>
                     <Header items={menu} />
-                    <Router>
+                    <Switch>
                         <Route path="/about" component={About} />
-                    </Router>
+                    </Switch>
                 </header>
                 <section>
                     <Dropdown />

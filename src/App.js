@@ -7,15 +7,16 @@ import Header from "./Header";
 import RegistrationForm from "./RegistrationForm";
 import RefForm from "./RefForm";
 import Counter from "./Counter";
-import { getTracks } from './actions/tracks'
-import { Route, Switch } from 'react-router-dom';
+import { getTracks } from './actions/tracks';
+import { Route, Switch, Link } from 'react-router-dom';
 import About from "./About";
+import Track from "./Track"
 
 const menu = [
     {link: '/', label: 'Home'},
     {link: '/about', label: 'About'},
-    {link: '/about', label: 'Contacts'},
-    {link: '/about', label: 'Posts'}
+    {link: '/about', label: 'About'},
+    {link: '/about', label: 'About'}
 ];
 
 class App extends Component {
@@ -37,6 +38,7 @@ class App extends Component {
                     <Header items={menu} />
                     <Switch>
                         <Route path="/about" component={About} />
+                        <Route path="/track/:id" component={Track} />
                     </Switch>
                 </header>
                 <section>
@@ -69,7 +71,9 @@ class App extends Component {
                     </div>
                     <ul>
                         {this.props.tracks.map((track, index) =>
-                            <li key={index}>{track.name}</li>
+                            <li key={index}>
+                                <Link to={`/track/${track.id}`}>{track.name}</Link>
+                            </li>
                         )}
                     </ul>
                 </section>

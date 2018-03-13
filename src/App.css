@@ -45,6 +45,9 @@
   .counter {
     margin:20px 0;
   }
+    .count {
+      padding: 0 10px;
+    }
   li {
     text-align:left;
   }

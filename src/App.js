@@ -12,6 +12,9 @@ import { Route, Switch, Link } from 'react-router-dom';
 import About from "./About";
 import Track from "./Track"
 
+import { css } from 'aphrodite/no-important';
+import styles from './AppStyles';
+
 const menu = [
     {link: '/', label: 'Home'},
     {link: '/about', label: 'About'},
@@ -57,6 +60,11 @@ class App extends Component {
                 </section>
 
                 <section>
+                    <div className={css(styles.square)}/>
+                    <div className={css(styles.square2)}/>
+                </section>
+
+                <section className={css(styles.contCss)}>
                     <form onSubmit={this.findTrack.bind(this)}>
                         <input type="text" ref={(input) => { this.searchInput = input }} />
                         <button>Find track</button>
